@@ -27,7 +27,7 @@ export default {
     return {
       i: '',
       name: null,
-      list: [{id:1, name:'Drink', discription:'$name Drink a cup'}, {id:2, name:'Sit', discription:'Sit down'}, {id:3, name:'Stand', discription:'Stand up'}], 
+      list: [{id:1, name:'Drink', discription:'$name Drink a cup'}, {id:2, name:'Sit', discription:'$name Sit down'}, {id:3, name:'Stand', discription:'$name Stand up'}], 
       item: {name: 'Welcome', discription: 'Hello world'}
     }
   },
@@ -37,6 +37,7 @@ export default {
     },
     next() {
       this.item = this.list[Math.floor(Math.random()*this.list.length)]
+      this.item.discription = this.item.discription.replace('$name', this.name)
       var i = this.item
       this.list = this.list.filter(function(o){
         return o.id != i.id
