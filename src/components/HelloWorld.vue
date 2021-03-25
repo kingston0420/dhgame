@@ -10,6 +10,12 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      list: ['Drink', 'Sit', 'Stand'], 
+      item: ''
+    }
   }
 }
 </script>
