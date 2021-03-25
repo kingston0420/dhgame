@@ -27,7 +27,7 @@ export default {
     return {
       i: '',
       name: null,
-      list: [{id:1, name:'Drink', discription:'Drink a cup'}, {id:2, name:'Sit', discription:'Sit down'}, {id:3, name:'Stand', discription:'Stand up'}], 
+      list: [{id:1, name:'Drink', discription:'$name Drink a cup'}, {id:2, name:'Sit', discription:'Sit down'}, {id:3, name:'Stand', discription:'Stand up'}], 
       item: {name: 'Welcome', discription: 'Hello world'}
     }
   },
