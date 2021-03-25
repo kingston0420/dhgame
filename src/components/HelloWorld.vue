@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    
+    <p>{{item}}</p>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
       list: ['Drink', 'Sit', 'Stand'], 
       item: ''
     }
+  },
+  mounted() {
+    this.item = this.list[Math.floor(Math.random()*this.list.length)]
   }
 }
 </script>
