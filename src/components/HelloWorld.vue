@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>{{item}}</p>
+    <p>{{item.name}}</p>
+    <p>{{item.discription}}</p>
+    <button @click="next()">Next Question</button>
   </div>
 </template>
 
@@ -13,8 +15,16 @@ export default {
   },
   data() {
     return {
-      list: ['Drink', 'Sit', 'Stand'], 
+      list: [{name:'Drink', discription:'Drink a cup'}, {name:'Sit', discription:'Sit down'}, {name:'Stand', discription:'Stand up'}], 
       item: ''
+    }
+  },
+  methods: {
+    next() {
+      this.item = this.list[Math.floor(Math.random()*this.list.length)]
+      this.list = this.list.filter(function(o){
+        return o.name != this.item.name
+      })
     }
   },
   mounted() {
