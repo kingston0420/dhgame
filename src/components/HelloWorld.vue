@@ -1,8 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>{{item.name}}</p>
+  <div class="card" v-if="list.length > 0">
+    <h1>{{ item.name }}</h1>
     <p>{{item.discription}}</p>
+  </div>
+  <div class="card" v-else>
+    <h1>The end</h1>
+    <p>Game over</p>
+  </div>
+  <div class="button">
     <button @click="next()" v-if="list.length > 0">Next Question</button>
   </div>
 </template>
@@ -15,8 +20,8 @@ export default {
   },
   data() {
     return {
-      list: [{name:'Drink', discription:'Drink a cup'}, {name:'Sit', discription:'Sit down'}, {name:'Stand', discription:'Stand up'}], 
-      item: ''
+      list: [{id:1, name:'Drink', discription:'Drink a cup'}, {id:2, name:'Sit', discription:'Sit down'}, {id:3, name:'Stand', discription:'Stand up'}], 
+      item: {name: 'Welcome', discription: 'Hello world'}
     }
   },
   methods: {
@@ -24,12 +29,12 @@ export default {
       this.item = this.list[Math.floor(Math.random()*this.list.length)]
       var i = this.item
       this.list = this.list.filter(function(o){
-        return o.name != i.name
+        return o.id != i.id
       })
     }
   },
   mounted() {
-    this.item = this.list[Math.floor(Math.random()*this.list.length)]
+
   }
 }
 </script>
@@ -49,5 +54,20 @@ li {
 }
 a {
   color: #42b983;
+}
+.card {
+  width: 50vw;
+  height: 50vh;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+button {
+  font-size: 22px;
+  margin-top: 2em;
+  border-radius: 50px;
+  background-color: blueviolet;
+  color: white;
+  padding: 1em;
 }
 </style>
