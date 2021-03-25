@@ -27,8 +27,22 @@ export default {
     return {
       i: '',
       name: null,
-      list: [{id:1, name:'Drink', discription:'$name Drink a cup'}, {id:2, name:'Sit', discription:'$name Sit down'}, {id:3, name:'Stand', discription:'$name Stand up'}], 
-      item: {name: 'Welcome', discription: 'Hello world'}
+      list: [
+      {id:1, name:'Drink', discription:'Take a shot'}, 
+      {id:2, name:'Lover', discription:'$name and $name each take a shot'}, 
+      {id:3, name:'Master', discription:'Everyone must call you master until the turn is back to you. Slip up = 1 drink.'}, 
+      {id:4, name:'Hotseat', discription:'Everyone gets to ask you 3 questions altogether (not each). You must answer honestly, or drink 2 to skip'}, 
+      {id:5, name:'Hotseat', discription:'Everyone gets to ask you 3 questions altogether (not each). You must answer honestly, or drink 2 to skip'}, 
+      {id:6, name:'Truth or drink', discription:'Name the top three most attractive people in DH or drink 2'}, 
+      {id:7, name:'Truth or drink', discription:'Name the top three most attractive people in DH or drink 2'}, 
+      {id:8, name:'Name the top three', discription:'Most savage OG execs.'}, 
+      {id:9, name:'Name the top three', discription:'Most savage current execs.'}, 
+      {id:10, name:'Name the person...', discription:'That has disappointed you the most. Give them a drink.'}, 
+      {id:11, name:'Mates', discription:'Pick a buddy! They drink every time you do. Ends after it is your turn again.'}, 
+      {id:12, name:'Soju vortex', discription:'JK finish whatever\'s in your glass.'}, 
+      {id:13, name:'Stand', discription:'$name Stand up'}],
+
+      item: {name: 'Welcome to the ultimate DH Game!!!', discription: 'Have your drink ready'}
     }
   },
   methods: {
@@ -52,30 +66,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  margin: 5px auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
+p {
+  margin: 20px 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+  color:saddlebrown
 }
 a {
   color: #42b983;
 }
+.start {
+  margin: 10px;
+}
 .card {
-  width: 50vw;
+  width: 45vw;
   height: 50vh;
   margin: 0 auto;
-  border: 1px solid black;
-  border-radius: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: cyan;
 }
 button {
-  font-size: 22px;
-  margin-top: 2em;
+  font-size: 20px;
+  margin-top: 1em;
   border-radius: 50px;
   background-color: blueviolet;
   color: white;
