@@ -1,4 +1,9 @@
 <template>
+  <div class="start" v-if = "!name">
+    Enter your name
+    <input type="text" name="" v-model="i" placeholder="Type your name here" />
+    <a @click="submit()">Submit!</a>
+  </div>
   <div class="card" v-if="list.length > 0">
     <h1>{{ item.name }}</h1>
     <p>{{item.discription}}</p>
@@ -20,11 +25,16 @@ export default {
   },
   data() {
     return {
+      i: '',
+      name: null,
       list: [{id:1, name:'Drink', discription:'Drink a cup'}, {id:2, name:'Sit', discription:'Sit down'}, {id:3, name:'Stand', discription:'Stand up'}], 
       item: {name: 'Welcome', discription: 'Hello world'}
     }
   },
   methods: {
+    submit() {
+      this.name = this.i
+    },
     next() {
       this.item = this.list[Math.floor(Math.random()*this.list.length)]
       var i = this.item
