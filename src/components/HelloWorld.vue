@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <p>{{item.name}}</p>
     <p>{{item.discription}}</p>
-    <button @click="next()">Next Question</button>
+    <button @click="next()" v-if="list.length > 0">Next Question</button>
   </div>
 </template>
 
@@ -22,8 +22,9 @@ export default {
   methods: {
     next() {
       this.item = this.list[Math.floor(Math.random()*this.list.length)]
+      var i = this.item
       this.list = this.list.filter(function(o){
-        return o.name != this.item.name
+        return o.name != i.name
       })
     }
   },
