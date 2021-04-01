@@ -1,9 +1,12 @@
 <template>
 <div class="home">
+  <img alt="DH logo" src="../assets/DH.png">
   <div class="start" v-if = "!name">
+    <span class="nameList" v-for="n in nameList" v-bind:key=n>{{n}} &nbsp;&nbsp;</span>
+    <br>
     Enter your name
     <input type="text" name="" v-model="i" placeholder="Type your name here" />
-    <a @click="submit()">Submit!</a>
+    <button class="submit" @click="submit()">Submit!</button>
   </div>
   <div class="card" v-if="list.length > 0">
     <h1>{{ item.name }}</h1>
@@ -30,6 +33,7 @@ export default {
     return {
       i: '',
       name: null,
+      nameList: [],
       bklist: [
       {id:1, name:'Drink', discription:'Take a shot'}, 
       {id:2, name:'Lover', discription:'$name and $name each take a shot'}, 
@@ -44,6 +48,7 @@ export default {
       {id:11, name:'Mates', discription:'Pick a buddy! They drink every time you do. Ends after it is your turn again.'}, 
       {id:12, name:'Soju vortex', discription:'JK finish whatever\'s in your glass.'}, 
       {id:13, name:'Stand', discription:'$name Stand up'}],
+
       list: [
       {id:1, name:'Drink', discription:'Take a shot'}, 
       {id:2, name:'Lover', discription:'$name and $name each take a shot'}, 
@@ -64,14 +69,16 @@ export default {
   },
   methods: {
     submit() {
-      this.name = this.i
+      this.nameList.push(this.i)
+      this.i = null
     },
     restart () {
       this.list = this.bklist.slice();
     },
     next() {
       this.item = this.list[Math.floor(Math.random()*this.list.length)]
-      this.item.discription = this.item.discription.replace('$name', this.name)
+      this.item.discription = this.item.discription.replace('$name', this.nameList[Math.floor(Math.random()*this.nameList.length)])
+      this.item.discription = this.item.discription.replace('$name', this.nameList[Math.floor(Math.random()*this.nameList.length)])
       var i = this.item
       this.list = this.list.filter(function(o){
         return o.id != i.id
@@ -121,4 +128,39 @@ button {
     background-color: darkorange;
     height: 100vh;
   }
+img {
+    width: 100px
+}
+input {
+  padding: 1em;
+  margin: 1em;
+  border-radius: 50px;
+  background-color: rgb(106, 106, 214);
+  color: white;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(0, 0, 0);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(0, 0, 0);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(0, 0, 0);
+}
+.submit {
+  font-size: 10px;
+  margin-top: 1em;
+  border-radius: 50px;
+  background-color: rgb(53, 228, 0);
+  color: white;
+  padding: 1em;
+  border: 3px ridge grey;
+}
+.nameList {
+  color: black;
+  font-size: 5px;
+}
 </style>
