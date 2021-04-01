@@ -1,8 +1,5 @@
 <template>
   <div class="start" v-if = "!name">
-    Enter your name
-    <input type="text" name="" v-model="i" placeholder="Type your name here" />
-    <a @click="submit()">Submit!</a>
   </div>
   <div class="card" v-if="list.length > 0">
     <h1>{{ item.name }}</h1>
