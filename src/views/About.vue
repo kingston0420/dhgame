@@ -99,7 +99,7 @@ a {
   color: #42b983;
 }
 .start {
-  margin: 10px;
+   /* margin: 10px; */
 }
 .card {
   width: 45vw;
