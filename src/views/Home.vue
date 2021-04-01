@@ -22,6 +22,7 @@ export default {
     width: 100px
   }
   .home {
-  background-color: darkorange;
+    background-color: darkorange;
+    height: 100vh;
   }
 </style>
