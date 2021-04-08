@@ -11,7 +11,7 @@
   </div>
   <div class="button">
     <button @click="next()" v-if="list.length > 0">Next Question</button>
-    <button @click="restart()" v-else>Restart</button>
+    <button class="restartButton" @click="restart()" v-else>Restart</button>
   </div>
 </template>
 
@@ -112,4 +112,13 @@ button {
   color: white;
   padding: 1em;
 }
+.restartButton {
+  font-size: 20px;
+  margin-top: 1em;
+  border-radius: 50px;
+  background-color: rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 1em;
+}
+
 </style>

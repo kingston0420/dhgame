@@ -2,9 +2,10 @@
 <div class="home">
   <img alt="DH logo" src="../assets/DH.png">
   <div class="start" v-if = "!name">
+    <spam>Player: &nbsp;</spam>
     <span class="nameList" v-for="n in nameList" v-bind:key=n>{{n}} &nbsp;&nbsp;</span>
     <br>
-    Enter your name
+    <spam>Enter your name</spam>
     <input type="text" name="" v-model="i" placeholder="Type your name here" />
     <button class="submit" @click="submit()">Submit!</button>
   </div>
@@ -18,7 +19,7 @@
   </div>
   <div class="button">
     <button @click="next()" v-if="list.length > 0">Next Question</button>
-    <button @click="restart()" v-else>Restart</button>
+    <button class="restartButton" @click="restart()" v-else>Restart</button>
   </div>
 </div>
 </template>
@@ -105,6 +106,9 @@ p {
 a {
   color: #42b983;
 }
+spam {
+  color:black;
+}
 .start {
    /* margin: 10px; */
 }
@@ -132,11 +136,12 @@ img {
     width: 100px
 }
 input {
-  padding: 1em;
+  padding: 0.5em;
   margin: 1em;
   border-radius: 50px;
   background-color: rgb(106, 106, 214);
   color: white;
+  border: 3px solid rgb(0, 0, 0);
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgb(0, 0, 0);
@@ -151,16 +156,25 @@ input {
   color: rgb(0, 0, 0);
 }
 .submit {
-  font-size: 10px;
+  font-size: 5px;
   margin-top: 1em;
   border-radius: 50px;
   background-color: rgb(53, 228, 0);
   color: white;
   padding: 1em;
-  border: 3px ridge grey;
+  border: 1px ridge grey;
 }
 .nameList {
   color: black;
   font-size: 5px;
 }
+.restartButton {
+  font-size: 20px;
+  margin-top: 1em;
+  border-radius: 50px;
+  background-color: rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 1em;
+}
+
 </style>
