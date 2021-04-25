@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Action</router-link> |
+    <router-link to="/">OG</router-link> |
     <router-link to="/crazy">Crazy</router-link>
   </div>
   <router-view/>

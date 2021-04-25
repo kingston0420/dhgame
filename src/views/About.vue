@@ -2,7 +2,10 @@
 <div class="home">
   <img alt="DH logo" src="../assets/DH.png">
   <div class="start" v-if = "!name">
-    <spam>Player: &nbsp;</spam>
+    <spam>This version is still in the making. Please contribute to the the card and your idea can be a part of this game</spam>
+    <br>
+    <a href="https://docs.google.com/spreadsheets/d/1XmymgqbUaoW_CC1TnG8Q7YbeA3YsXr03UWrCKNXm79Q/edit#gid=0" target="_blank">Contribute here</a>
+    <!--<spam>Player: &nbsp;</spam>-->
     <span class="nameList" v-for="n in nameList" v-bind:key=n>{{n}} &nbsp;&nbsp;</span>
     <br>
     <spam>Enter your name</spam>
@@ -18,7 +21,8 @@
     <p>Game over</p>
   </div>
   <div class="button">
-    <button @click="next()" v-if="list.length > 0">Next Question</button>
+    <button class="restartButton" @click="next()" v-if="flag == 1">Start Game</button>
+    <button @click="next()" v-else-if="list.length > 0 && flag == 0">Next Card</button>
     <button class="restartButton" @click="restart()" v-else>Restart</button>
   </div>
 </div>
@@ -32,38 +36,19 @@ export default {
   },
   data() {
     return {
+      flag: 1,
       i: '',
       name: null,
       nameList: [],
       bklist: [
       {id:1, name:'Drink', discription:'Take a shot'}, 
-      {id:2, name:'Lover', discription:'$name and $name each take a shot'}, 
-      {id:3, name:'Master', discription:'Everyone must call you master until the turn is back to you. Slip up = 1 drink.'}, 
-      {id:4, name:'Hotseat', discription:'Everyone gets to ask you 3 questions altogether (not each). You must answer honestly, or drink 2 to skip'}, 
-      {id:5, name:'Hotseat', discription:'Everyone gets to ask you 3 questions altogether (not each). You must answer honestly, or drink 2 to skip'}, 
-      {id:6, name:'Truth or drink', discription:'Name the top three most attractive people in DH or drink 2'}, 
-      {id:7, name:'Truth or drink', discription:'Name the top three most attractive people in DH or drink 2'}, 
-      {id:8, name:'Name the top three', discription:'Most savage OG execs.'}, 
-      {id:9, name:'Name the top three', discription:'Most savage current execs.'}, 
-      {id:10, name:'Name the person...', discription:'That has disappointed you the most. Give them a drink.'}, 
-      {id:11, name:'Mates', discription:'Pick a buddy! They drink every time you do. Ends after it is your turn again.'}, 
-      {id:12, name:'Soju vortex', discription:'JK finish whatever\'s in your glass.'}, 
-      {id:13, name:'Stand', discription:'$name Stand up'}],
+      {id:2, name:'Lover', discription:'$name and $name each take a shot'}  
+      ],
 
       list: [
       {id:1, name:'Drink', discription:'Take a shot'}, 
-      {id:2, name:'Lover', discription:'$name and $name each take a shot'}, 
-      {id:3, name:'Master', discription:'Everyone must call you master until the turn is back to you. Slip up = 1 drink.'}, 
-      {id:4, name:'Hotseat', discription:'Everyone gets to ask you 3 questions altogether (not each). You must answer honestly, or drink 2 to skip'}, 
-      {id:5, name:'Hotseat', discription:'Everyone gets to ask you 3 questions altogether (not each). You must answer honestly, or drink 2 to skip'}, 
-      {id:6, name:'Truth or drink', discription:'Name the top three most attractive people in DH or drink 2'}, 
-      {id:7, name:'Truth or drink', discription:'Name the top three most attractive people in DH or drink 2'}, 
-      {id:8, name:'Name the top three', discription:'Most savage OG execs.'}, 
-      {id:9, name:'Name the top three', discription:'Most savage current execs.'}, 
-      {id:10, name:'Name the person...', discription:'That has disappointed you the most. Give them a drink.'}, 
-      {id:11, name:'Mates', discription:'Pick a buddy! They drink every time you do. Ends after it is your turn again.'}, 
-      {id:12, name:'Soju vortex', discription:'JK finish whatever\'s in your glass.'}, 
-      {id:13, name:'Stand', discription:'$name Stand up'}],
+      {id:2, name:'Lover', discription:'$name and $name each take a shot'} 
+      ],
 
       item: {name: 'Welcome to the ultimate DH Game!!!', discription: 'Have your drink ready'}
     }
@@ -75,12 +60,15 @@ export default {
     },
     restart () {
       this.list = this.bklist.slice();
+      this.flag = 1;
+      this.item = {name: 'Welcome to the ultimate DH Game!!!', discription: 'Have your drink ready'};
     },
     next() {
       this.item = this.list[Math.floor(Math.random()*this.list.length)]
       this.item.discription = this.item.discription.replace('$name', this.nameList[Math.floor(Math.random()*this.nameList.length)])
       this.item.discription = this.item.discription.replace('$name', this.nameList[Math.floor(Math.random()*this.nameList.length)])
       var i = this.item
+      this.flag = 0;
       this.list = this.list.filter(function(o){
         return o.id != i.id
       })
@@ -104,13 +92,11 @@ p {
   color:saddlebrown
 }
 a {
-  color: #42b983;
+  color: #000000;
+  font-size: 2em;
 }
 spam {
   color:black;
-}
-.start {
-   /* margin: 10px; */
 }
 .card {
   width: 45vw;
@@ -129,7 +115,7 @@ button {
   padding: 1em;
 }
 .home {
-    background-color: darkorange;
+    background-color: red;
     height: 100vh;
   }
 img {
@@ -172,9 +158,9 @@ input {
   font-size: 20px;
   margin-top: 1em;
   border-radius: 50px;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(17, 0, 255);
   color: rgb(0, 0, 0);
   padding: 1em;
 }
-
+/*<spam>Player: &nbsp;</spam>*/
 </style>

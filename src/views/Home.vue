@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="DH logo" src="../assets/DH.png">
+    <img alt="DH logo" src="../assets/blue_white.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -19,10 +19,11 @@ export default {
 
 <style scoped>
   img {
-    width: 100px
+    margin-top: 10px;
+    width: 70px
   }
   .home {
-    background-color: darkorange;
+    background-color: #073464;
     height: 100vh;
   }
 </style>
