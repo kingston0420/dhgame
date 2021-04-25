@@ -264,7 +264,7 @@ spam {
   background-color: #824670;
   color: white;
   padding: 1em;
-  border: 1px rsolid grey;
+  border: 1px solid grey;
 }
 input {
   width: 5em;
