@@ -1,9 +1,9 @@
 <template>
   <div>
     <br>
-    <spam>How many player?</spam>
+    <spam>Number of Players:</spam>
     <input type="number" name="" v-model="i" placeholder="1" />
-    <button class="submit" @click="submit()">Submit!</button>
+    <button class="submit" @click="submit()">Confirm</button>
     <p class="player">Player{{display}}'s turn</p>
   </div>
   <div class="card" v-if="list.length > 0">
@@ -253,16 +253,18 @@ button {
   padding: 1em;
 }
 spam {
-  color:black;
+  font-size: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:rgb(255, 255, 255);
 }
 .submit {
-  font-size: 5px;
+  font-size: 2px;
   margin: 0em 1em;
-  border-radius: 50px;
-  background-color: rgb(53, 228, 0);
+  border-radius: 0px;
+  background-color: #824670;
   color: white;
   padding: 1em;
-  border: 1px ridge grey;
+  border: 1px rsolid grey;
 }
 input {
   width: 5em;
@@ -276,7 +278,7 @@ input {
 .player {
   margin: 6px auto;
   font-size: 1.2em;
-  color:black;
+  color:rgb(255, 255, 255);
 }
 
 </style>
